@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北アルプスへ、一緒に行きませんか。｜立山旅</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Klee+One:wght@400;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   立山旅 — 参加者募集 & 旅詳細
+   Built on the kfgopro design language (soft pastel · warm · hand-crafted)
+   ============================================================ */
+:root{
+  /* palette */
+  --mint:#9fd9c1; --mint-soft:#e3f5ee;
+  --sky:#9cd1ea;  --sky-soft:#e1f2fa;
+  --lav:#c3b1e6;  --lav-soft:#efe9fa;
+  --peach:#f4a9a2;--peach-soft:#fde6e3;
+  --sky-deep:#3a8dc4;
+  /* ink */
+  --ink:#5a5450; --ink-strong:#4a4540; --ink-soft:#8c847e;
+  /* surfaces */
+  --cream:#fffaf5; --surface:#ffffff; --surface-2:rgba(255,255,255,.70);
+  /* hairlines */
+  --line:rgba(140,132,126,.20); --line-dashed:rgba(156,209,234,.55);
+  /* signature wash */
+  --bg-wash:
+    radial-gradient(60% 45% at 12% 6%,  var(--peach-soft) 0%, transparent 60%),
+    radial-gradient(55% 40% at 92% 14%, var(--sky-soft)   0%, transparent 60%),
+    radial-gradient(60% 45% at 6% 52%,  var(--mint-soft)  0%, transparent 60%),
+    radial-gradient(55% 45% at 96% 70%, var(--lav-soft)   0%, transparent 60%),
+    radial-gradient(50% 40% at 20% 96%, var(--sky-soft)   0%, transparent 60%),
+    var(--cream);
+  /* type */
+  --font-display:"Zen Maru Gothic",-apple-system,BlinkMacSystemFont,"Hiragino Maru Gothic ProN",sans-serif;
+  --font-body:"Zen Maru Gothic",-apple-system,BlinkMacSystemFont,sans-serif;
+  --font-hand:"Klee One","Zen Maru Gothic",serif;
+  --t-display:clamp(27px,7vw,46px);
+  --t-h2:clamp(21px,5vw,31px);
+  --t-h3:clamp(17px,4.2vw,21px);
+  --t-lead:clamp(15px,3.4vw,19px);
+  --t-body:clamp(14.5px,3vw,16px);
+  --t-small:clamp(12px,2.6vw,14px);
+  --t-eyebrow:clamp(11px,2.4vw,13px);
+  --t-caption:clamp(10px,2.2vw,11px);
+  --w-reg:400; --w-med:500; --w-bold:700; --w-black:900;
+  --lh-body:1.9; --lh-tight:1.4; --ls-body:.02em; --ls-eyebrow:.42em; --ls-label:.16em;
+  --r-card:30px; --r-panel:24px; --r-photo:16px; --r-soft:12px; --r-chip:10px; --r-pill:999px;
+  --shadow-card:0 24px 60px -28px rgba(120,110,100,.34),0 2px 0 rgba(0,0,0,.01);
+  --shadow-photo:0 14px 34px -16px rgba(120,110,100,.45);
+  --shadow-panel:0 16px 48px -24px rgba(120,110,100,.28),0 2px 0 rgba(0,0,0,.01);
+  --shadow-soft:0 4px 14px -4px rgba(159,217,193,.6);
+  --ease:cubic-bezier(.4,0,.2,1); --dur:.18s;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  font-family:var(--font-body); color:var(--ink); background:var(--cream);
+  line-height:var(--lh-body); letter-spacing:var(--ls-body);
+  -webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility;
+  position:relative;
+}
+body::before{
+  content:""; position:fixed; inset:0; z-index:-1; background:var(--bg-wash);
+}
+img{display:block; max-width:100%;}
+a{color:var(--sky-deep);}
+
+.wrap{ max-width:880px; margin:0 auto; padding:0 clamp(16px,4.5vw,40px); }
+
+/* accent assignment per section */
+.ac-mint {--accent:var(--mint); --accent-soft:var(--mint-soft);}
+.ac-sky  {--accent:var(--sky);  --accent-soft:var(--sky-soft);}
+.ac-lav  {--accent:var(--lav);  --accent-soft:var(--lav-soft);}
+.ac-peach{--accent:var(--peach);--accent-soft:var(--peach-soft);}
+
+/* ---------- section shell ---------- */
+section{ padding:clamp(36px,8vw,60px) 0; }
+.eyebrow{
+  display:flex; align-items:center; justify-content:center; gap:12px;
+  font-family:var(--font-display); font-size:var(--t-eyebrow); font-weight:var(--w-bold);
+  letter-spacing:var(--ls-eyebrow); padding-left:var(--ls-eyebrow);
+  color:var(--accent,var(--mint)); text-transform:uppercase; margin-bottom:clamp(12px,2.5vw,16px);
+}
+.eyebrow::before,.eyebrow::after{
+  content:""; width:24px; height:2px; border-radius:2px;
+  background:var(--peach); opacity:.85;
+}
+.ac-peach .eyebrow::before,.ac-peach .eyebrow::after{ background:var(--sky); }
+.sec-title{
+  font-family:var(--font-display); font-weight:var(--w-black);
+  font-size:var(--t-h2); line-height:var(--lh-tight); color:var(--ink-strong);
+  text-align:center; text-wrap:balance; margin-bottom:clamp(22px,4.5vw,34px);
+}
+.sec-title .hl{ position:relative; white-space:nowrap; }
+.sec-title .hl::after{
+  content:""; position:absolute; left:-3%; right:-3%; bottom:.06em; height:.42em;
+  background:var(--accent-soft); border-radius:1em; z-index:-1;
+}
+.lead{
+  font-family:var(--font-hand); font-size:var(--t-lead); line-height:2; color:var(--ink);
+  text-align:center; max-width:38em; margin:0 auto clamp(8px,2vw,12px); text-wrap:pretty;
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+.hero{ padding:clamp(20px,5vw,40px) 0 clamp(10px,3vw,24px); }
+.hero-card{
+  position:relative; border-radius:var(--r-card); overflow:hidden;
+  box-shadow:var(--shadow-card);
+  min-height:clamp(440px,84vh,640px);
+  display:flex; flex-direction:column; justify-content:flex-end;
+  /* Hero image placeholder: replace this background with the actual photo */
+  /* e.g. background-image:url('....jpg'); background-size:cover; background-position:center; */
+  background:
+    radial-gradient(120% 90% at 80% 10%, rgba(156,209,234,.55) 0%, transparent 55%),
+    radial-gradient(120% 90% at 10% 30%, rgba(244,169,162,.42) 0%, transparent 55%),
+    radial-gradient(130% 100% at 50% 110%, rgba(159,217,193,.55) 0%, transparent 60%),
+    linear-gradient(165deg,#eaf4fb 0%,#f6eef9 48%,#e7f5ee 100%);
+}
+.hero-card::after{
+  /* soft readability veil at the base */
+  content:""; position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(74,69,64,.34) 0%, rgba(74,69,64,.06) 34%, transparent 60%);
+}
+.hero-placeholder-note{
+  position:absolute; top:14px; left:50%; transform:translateX(-50%);
+  font-size:10px; letter-spacing:.14em; color:rgba(90,84,80,.5);
+  background:rgba(255,255,255,.6); padding:4px 12px; border-radius:var(--r-pill);
+  text-transform:uppercase; backdrop-filter:blur(2px); z-index:3;
+}
+.hero-inner{ position:relative; z-index:2; padding:clamp(24px,6vw,48px); }
+.hero-eyebrow{
+  display:inline-block; font-size:var(--t-eyebrow); letter-spacing:.4em; padding-left:.4em;
+  font-weight:var(--w-bold); color:#fff; text-transform:uppercase;
+  margin-bottom:clamp(14px,3vw,20px); text-shadow:0 1px 8px rgba(74,69,64,.4);
+}
+.hero h1{
+  font-family:var(--font-display); font-weight:var(--w-black);
+  font-size:var(--t-display); line-height:1.5; color:#fff;
+  text-wrap:balance; text-shadow:0 2px 16px rgba(74,69,64,.45);
+  margin-bottom:clamp(16px,3vw,22px);
+}
+.hero-sub{
+  display:inline-flex; flex-wrap:wrap; align-items:center; gap:clamp(8px,2vw,14px);
+  font-family:var(--font-hand); font-size:var(--t-lead); color:var(--ink);
+  background:var(--surface-2); border:1.5px dashed var(--line-dashed);
+  border-radius:var(--r-pill); padding:clamp(11px,2.4vw,15px) clamp(18px,4vw,30px);
+  backdrop-filter:blur(3px);
+}
+.hero-sub .date{ color:var(--sky-deep); font-weight:var(--w-med); }
+.hero-sub .dot{ width:5px; height:5px; border-radius:50%; background:var(--lav); }
+
+/* recruitment seal badge */
+.seal{
+  position:absolute; z-index:4; top:clamp(16px,4vw,30px); right:clamp(16px,4vw,30px);
+  width:clamp(108px,26vw,150px); height:clamp(108px,26vw,150px);
+  border-radius:50%; transform:rotate(-9deg);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  text-align:center; color:#fff; text-decoration:none;
+  background:
+    radial-gradient(circle at 32% 28%, #f9c2bc 0%, transparent 60%),
+    linear-gradient(150deg, #f4a9a2 0%, #ef9a93 55%, #eb8e9d 100%);
+  box-shadow:0 16px 34px -14px rgba(235,142,157,.85), inset 0 0 0 2px rgba(255,255,255,.55);
+  animation:seal-breathe 4.5s var(--ease) infinite;
+}
+.seal::before{
+  content:""; position:absolute; inset:7px; border-radius:50%;
+  border:1.6px dashed rgba(255,255,255,.7);
+}
+.seal .s-top{ font-family:var(--font-hand); font-size:clamp(10px,2.4vw,12px); letter-spacing:.1em; opacity:.95; }
+.seal .s-big{
+  font-family:var(--font-hand); font-weight:var(--w-bold);
+  font-size:clamp(26px,7vw,40px); line-height:1; margin:2px 0;
+  display:flex; align-items:baseline; gap:2px;
+}
+.seal .s-big .u{ font-size:.5em; align-self:center; }
+.seal .s-sub{ font-family:var(--font-display); font-weight:var(--w-bold); font-size:clamp(12px,3vw,16px); letter-spacing:.14em; }
+.seal .s-heart{ font-size:clamp(11px,2.6vw,13px); margin-top:3px; }
+@keyframes seal-breathe{ 0%,100%{transform:rotate(-9deg) scale(1);} 50%{transform:rotate(-9deg) scale(1.04);} }
+
+/* ============================================================
+   SPEC GRID
+   ============================================================ */
+.spec{
+  display:grid; gap:clamp(10px,2.2vw,14px);
+  grid-template-columns:repeat(2,1fr);
+}
+.spec-item{
+  background:var(--surface); border-radius:var(--r-panel); box-shadow:var(--shadow-panel);
+  padding:clamp(16px,3.4vw,22px) clamp(14px,3vw,20px);
+  display:flex; flex-direction:column; align-items:flex-start; gap:8px;
+  position:relative; overflow:hidden;
+}
+.spec-item::before{
+  content:""; position:absolute; inset:0; border-radius:var(--r-panel);
+  border:1.5px solid var(--accent); opacity:.32; pointer-events:none;
+}
+.spec-item.span2{ grid-column:1 / -1; }
+.spec-ico{
+  width:clamp(38px,8vw,44px); height:clamp(38px,8vw,44px); border-radius:50%;
+  background:var(--accent-soft); display:flex; align-items:center; justify-content:center;
+  color:var(--ink-soft);
+}
+.spec-ico svg{ width:56%; height:56%; }
+.spec-lab{ font-size:var(--t-caption); letter-spacing:.14em; font-weight:var(--w-bold); color:var(--accent); text-transform:uppercase; }
+.spec-val{ font-size:var(--t-body); color:var(--ink-strong); font-weight:var(--w-med); line-height:1.6; }
+.spec-item.highlight{ background:var(--peach-soft); }
+.spec-item.highlight .spec-val{ color:var(--ink-strong); font-weight:var(--w-bold); }
+.spec-item.highlight .spec-val em{ font-style:normal; color:#d97a72; font-size:1.15em; font-family:var(--font-hand); }
+
+/* ============================================================
+   ABOUT (立山ってどんなところ)
+   ============================================================ */
+.prose{ max-width:40em; margin:0 auto; }
+.prose p{ font-size:var(--t-body); line-height:var(--lh-body); color:var(--ink); margin-bottom:1.1em; text-wrap:pretty; }
+.prose p:last-child{ margin-bottom:0; }
+.prose .soft{ color:var(--ink-soft); }
+.media{
+  position:relative; background:#fff; padding:12px; border-radius:var(--r-photo);
+  box-shadow:var(--shadow-photo); margin-top:clamp(22px,4.5vw,30px); transform:rotate(-.5deg);
+}
+.media::before{
+  content:""; position:absolute; top:-12px; left:50%; transform:translateX(-50%) rotate(-3deg);
+  width:104px; height:26px; border-radius:4px; background:var(--accent); opacity:.5;
+  box-shadow:0 2px 6px rgba(0,0,0,.06); z-index:2;
+}
+.media-frame{
+  position:relative; width:100%; aspect-ratio:16/9; border-radius:9px; overflow:hidden;
+  background:linear-gradient(150deg,#e7f5ee,#e1f2fa 60%,#efe9fa);
+  display:flex; align-items:center; justify-content:center;
+}
+.media-frame .play{
+  width:clamp(54px,12vw,68px); height:clamp(54px,12vw,68px); border-radius:50%;
+  background:rgba(255,255,255,.86); display:flex; align-items:center; justify-content:center;
+  box-shadow:0 8px 22px -8px rgba(120,110,100,.5);
+}
+.media-frame .play::after{
+  content:""; border-style:solid; border-width:11px 0 11px 18px;
+  border-color:transparent transparent transparent var(--sky-deep); margin-left:4px;
+}
+.media-note{
+  position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+  font-size:10px; letter-spacing:.12em; color:var(--ink-soft);
+  background:rgba(255,255,255,.75); padding:3px 12px; border-radius:var(--r-pill);
+  text-transform:uppercase; white-space:nowrap;
+}
+
+/* ============================================================
+   MEMBERS
+   ============================================================ */
+.members{ display:grid; gap:clamp(18px,4vw,26px); grid-template-columns:repeat(3,1fr); }
+.member{
+  background:var(--surface); border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:clamp(22px,3.5vw,28px) clamp(16px,3vw,22px) clamp(20px,3vw,26px);
+  text-align:center; position:relative; overflow:hidden;
+}
+.member::before{
+  content:""; position:absolute; inset:0; border-radius:var(--r-card);
+  border:1.5px solid var(--accent); opacity:.3; pointer-events:none;
+}
+.member-pic{
+  width:clamp(96px,30vw,128px); height:clamp(96px,30vw,128px); border-radius:50%;
+  margin:0 auto clamp(14px,2.5vw,18px); position:relative;
+  background:var(--accent-soft);
+  box-shadow:0 0 0 6px var(--surface), 0 0 0 8px var(--accent-soft), var(--shadow-photo);
+}
+.member-pic img{
+  width:100%; height:100%; border-radius:50%; object-fit:cover;
+}
+.member-pic::after{
+  /* gentle soft edge / vignette */
+  content:""; position:absolute; inset:0; border-radius:50%; pointer-events:none;
+  box-shadow:inset 0 0 14px 2px rgba(255,255,255,.55);
+}
+.member-role{
+  display:inline-block; font-size:var(--t-caption); letter-spacing:.1em; font-weight:var(--w-bold);
+  color:#fff; background:var(--accent); padding:3px 12px; border-radius:var(--r-pill);
+  margin-bottom:8px;
+}
+.member-name{ font-family:var(--font-display); font-size:var(--t-h3); font-weight:var(--w-black); color:var(--ink-strong); line-height:1.3; }
+.member-name .kana{ display:block; font-family:var(--font-hand); font-size:.62em; font-weight:var(--w-reg); color:var(--ink-soft); letter-spacing:.04em; margin-top:2px; }
+.member-bio{ font-size:var(--t-small); color:var(--ink); line-height:1.85; margin:10px 0 14px; text-wrap:pretty; }
+.member-ig{
+  display:inline-flex; align-items:center; gap:7px; text-decoration:none;
+  font-size:var(--t-small); font-weight:var(--w-bold); color:var(--accent);
+  border:1.5px solid var(--accent); border-radius:var(--r-pill); padding:7px 16px;
+  transition:background var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+.member-ig:hover{ background:var(--accent); color:#fff; }
+.member-ig svg{ width:15px; height:15px; }
+
+/* ============================================================
+   LOOKING FOR
+   ============================================================ */
+.lookfor{
+  background:var(--surface-2); border:1.5px dashed rgba(195,177,230,.6);
+  border-radius:var(--r-panel); padding:clamp(24px,5vw,40px) clamp(20px,5vw,40px);
+  max-width:620px; margin:0 auto; backdrop-filter:blur(2px);
+}
+.lookfor ul{ list-style:none; display:flex; flex-direction:column; gap:clamp(12px,2.5vw,16px); }
+.lookfor li{ display:flex; align-items:flex-start; gap:12px; font-size:var(--t-body); color:var(--ink); line-height:1.75; }
+.lookfor li .tick{
+  flex:0 0 auto; width:24px; height:24px; border-radius:50%; margin-top:.15em;
+  background:var(--lav-soft); border:1.5px solid var(--lav);
+  display:flex; align-items:center; justify-content:center; color:var(--lav);
+}
+.lookfor li .tick svg{ width:12px; height:12px; }
+
+/* ============================================================
+   ITINERARY (timeline)
+   ============================================================ */
+.day{ margin-bottom:clamp(30px,5vw,42px); }
+.day:last-child{ margin-bottom:0; }
+.day-head{
+  display:flex; align-items:center; gap:12px; margin-bottom:clamp(16px,3vw,22px);
+}
+.day-badge{
+  flex:0 0 auto; display:inline-flex; align-items:baseline; gap:6px;
+  background:var(--accent); color:#fff; border-radius:var(--r-pill);
+  padding:6px 18px 6px 14px; box-shadow:var(--shadow-soft);
+}
+.day-badge .d{ font-family:var(--font-hand); font-size:clamp(20px,5vw,26px); font-weight:var(--w-bold); line-height:1; }
+.day-badge .l{ font-size:var(--t-small); font-weight:var(--w-bold); letter-spacing:.1em; }
+.day-head .day-cap{ font-size:var(--t-small); color:var(--ink-soft); }
+.day-head::after{ content:""; flex:1; height:2px; border-radius:2px; background:var(--accent-soft); }
+
+.tl{ position:relative; padding-left:clamp(74px,18vw,96px); }
+.tl::before{
+  content:""; position:absolute; top:10px; bottom:10px; left:clamp(60px,15vw,78px);
+  width:2px; background:var(--accent-soft);
+}
+.tl-step{ position:relative; padding-bottom:clamp(16px,3vw,22px); }
+.tl-step:last-child{ padding-bottom:0; }
+.tl-time{
+  position:absolute; left:calc(-1 * clamp(74px,18vw,96px)); top:-2px;
+  width:clamp(50px,12vw,60px); text-align:right;
+  font-family:var(--font-hand); font-weight:var(--w-med); font-size:clamp(12px,2.8vw,14px);
+  color:var(--accent); line-height:1.5;
+}
+.tl-step::before{
+  content:""; position:absolute;
+  left:calc(-1 * clamp(74px,18vw,96px) + clamp(60px,15vw,78px) - 5px); top:5px;
+  width:12px; height:12px; border-radius:50%; background:#fff; border:3px solid var(--accent);
+}
+.tl-step.notime::before{ width:9px; height:9px; top:7px; left:calc(-1 * clamp(74px,18vw,96px) + clamp(60px,15vw,78px) - 3.5px); background:var(--accent); border-width:2px; opacity:.7; }
+.tl-act{ font-size:var(--t-body); color:var(--ink); line-height:1.7; }
+.tl-note{ font-size:var(--t-small); color:var(--ink-soft); line-height:1.7; }
+.tl-step.is-main .tl-act{ font-weight:var(--w-bold); color:var(--ink-strong); }
+.tl-step.is-main::before{ background:var(--accent); box-shadow:0 0 0 4px var(--accent-soft); }
+.tl-step.is-end::before{ background:var(--accent); }
+.tl-step.is-end .tl-act{ font-weight:var(--w-bold); }
+.tl-mainroute{
+  margin-top:8px; font-family:var(--font-hand); font-size:var(--t-small); color:var(--ink);
+  background:var(--accent-soft); border-radius:var(--r-soft); padding:10px 14px; line-height:1.8;
+}
+
+/* ============================================================
+   COURSE MAP
+   ============================================================ */
+.map-card{
+  background:var(--surface); border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:clamp(18px,3.5vw,28px); position:relative; overflow:hidden;
+}
+.map-card::before{
+  content:""; position:absolute; inset:0; border-radius:var(--r-card);
+  border:1.5px solid var(--mint); opacity:.3; pointer-events:none;
+}
+.map-illust{ width:100%; height:auto; display:block; border-radius:var(--r-photo); overflow:hidden; }
+.route-strip{
+  display:flex; flex-wrap:wrap; align-items:stretch; gap:8px 6px; margin-top:clamp(18px,3.5vw,24px);
+}
+.route-node{
+  display:flex; align-items:center; gap:9px; background:var(--mint-soft);
+  border:1.5px solid var(--mint); border-radius:var(--r-pill);
+  padding:7px 15px 7px 9px; flex:1 1 auto;
+}
+.route-node .n{
+  flex:0 0 auto; width:24px; height:24px; border-radius:50%; background:var(--mint); color:#fff;
+  font-size:12px; font-weight:var(--w-bold); display:flex; align-items:center; justify-content:center;
+}
+.route-node .nm{ font-size:var(--t-small); color:var(--ink-strong); font-weight:var(--w-med); white-space:nowrap; }
+.route-node .nm small{ color:var(--ink-soft); font-weight:var(--w-reg); margin-left:3px; }
+.route-node.peak{ background:#fff; }
+.route-node.top{ background:var(--peach-soft); border-color:var(--peach); }
+.route-node.top .n{ background:var(--peach); }
+.route-node.top .nm{ font-weight:var(--w-bold); }
+.route-arrow{ align-self:center; color:var(--mint); font-size:14px; }
+.map-cap{ text-align:center; font-size:var(--t-small); color:var(--ink-soft); margin-top:clamp(14px,3vw,18px); font-family:var(--font-hand); }
+
+/* ============================================================
+   COST
+   ============================================================ */
+.cost{
+  background:var(--surface); border-radius:var(--r-panel); box-shadow:var(--shadow-panel);
+  padding:clamp(20px,4vw,30px) clamp(20px,4.5vw,34px); max-width:620px; margin:0 auto;
+  position:relative; overflow:hidden;
+}
+.cost::before{ content:""; position:absolute; inset:0; border-radius:var(--r-panel); border:1.5px solid var(--lav); opacity:.3; pointer-events:none; }
+.cost-row{
+  display:flex; align-items:baseline; gap:12px; padding:clamp(13px,2.6vw,16px) 0;
+  border-bottom:1.5px dashed var(--line);
+}
+.cost-row:last-child{ border-bottom:0; }
+.cost-row .ci{ font-size:var(--t-body); color:var(--ink); line-height:1.6; }
+.cost-row .ci small{ display:block; font-size:var(--t-caption); color:var(--ink-soft); letter-spacing:.04em; }
+.cost-row .cv{ margin-left:auto; flex:0 0 auto; font-family:var(--font-hand); font-weight:var(--w-bold); font-size:clamp(16px,4vw,20px); color:var(--ink-strong); white-space:nowrap; }
+.cost-row .cv span{ font-size:.7em; font-weight:var(--w-reg); }
+.cost-row.own .cv{ color:var(--lav); font-size:var(--t-body); }
+.cost-note{ font-size:var(--t-small); color:var(--ink-soft); text-align:center; margin-top:clamp(14px,3vw,18px); }
+
+/* ============================================================
+   GEAR
+   ============================================================ */
+.gear-cards{ display:grid; gap:clamp(14px,3vw,18px); grid-template-columns:repeat(3,1fr); margin-top:clamp(8px,2vw,12px); }
+.gear{
+  background:var(--surface); border-radius:var(--r-card); box-shadow:var(--shadow-card);
+  padding:clamp(20px,3.4vw,26px) clamp(16px,3vw,22px); position:relative; overflow:hidden;
+}
+.gear::before{ content:""; position:absolute; inset:0; border-radius:var(--r-card); border:1.5px solid var(--peach); opacity:.3; pointer-events:none; }
+.gear-no{ font-family:var(--font-hand); font-size:clamp(13px,2.8vw,15px); font-weight:var(--w-bold); color:var(--peach); letter-spacing:.08em; }
+.gear-ico{
+  width:clamp(48px,11vw,58px); height:clamp(48px,11vw,58px); border-radius:50%;
+  background:var(--peach-soft); display:flex; align-items:center; justify-content:center;
+  color:#d97a72; margin:8px 0 14px;
+}
+.gear-ico svg{ width:52%; height:52%; }
+.gear h3{ font-family:var(--font-display); font-size:var(--t-h3); font-weight:var(--w-black); color:var(--ink-strong); line-height:1.35; margin-bottom:8px; }
+.gear p{ font-size:var(--t-small); color:var(--ink); line-height:1.85; text-wrap:pretty; }
+.gear-foot{ text-align:center; font-size:var(--t-small); color:var(--ink-soft); margin-top:clamp(18px,3.5vw,24px); font-family:var(--font-hand); }
+.three-treasures{
+  display:inline-block; font-family:var(--font-hand); font-size:var(--t-h3); font-weight:var(--w-bold);
+  color:var(--ink-strong); margin:0 auto clamp(6px,1.5vw,10px); text-align:center; width:100%;
+}
+
+/* ============================================================
+   RESTROOM
+   ============================================================ */
+.rest{
+  background:var(--sky-soft); border-radius:var(--r-panel); border:1.5px solid rgba(156,209,234,.6);
+  padding:clamp(22px,4.5vw,34px); max-width:620px; margin:0 auto;
+}
+.rest ul{ list-style:none; display:flex; flex-direction:column; gap:clamp(12px,2.4vw,15px); }
+.rest li{ display:flex; align-items:flex-start; gap:12px; font-size:var(--t-body); color:var(--ink); line-height:1.75; }
+.rest li .dt{ flex:0 0 auto; width:8px; height:8px; border-radius:50%; background:var(--sky-deep); margin-top:.6em; }
+.rest li strong{ color:var(--sky-deep); font-weight:var(--w-bold); }
+
+/* ============================================================
+   CLOSING + FOOTER
+   ============================================================ */
+.closing{ text-align:center; max-width:560px; margin:0 auto; padding-top:clamp(20px,4vw,30px); }
+.closing .heart{ font-size:clamp(24px,6vw,32px); color:var(--peach); margin-bottom:14px; line-height:1; }
+.closing p{ font-family:var(--font-hand); font-size:var(--t-lead); color:var(--ink); line-height:2; text-wrap:pretty; }
+.closing .sign{ margin-top:clamp(18px,3.5vw,24px); font-size:var(--t-small); color:var(--ink-soft); }
+footer{ text-align:center; padding:clamp(30px,6vw,48px) 0 clamp(40px,8vw,64px); }
+footer img{ width:min(50%,240px); height:auto; margin:0 auto clamp(8px,2vw,12px); opacity:.92; }
+footer .fnote{ font-size:var(--t-caption); color:var(--ink-soft); letter-spacing:.06em; }
+
+/* ---------- entrance ----------
+   No opacity/animation gating: content is always visible regardless of
+   environment. (.reveal kept as an inert hook for future use.) */
+.reveal{ opacity:1; }
+
+/* ---------- responsive ---------- */
+@media (max-width:600px){
+  .members{ grid-template-columns:1fr; max-width:340px; margin:0 auto; gap:clamp(16px,4vw,22px); }
+  .gear-cards{ grid-template-columns:1fr; }
+  .route-node{ flex:1 1 100%; }
+  .route-arrow{ display:none; }
+}
+@media (max-width:380px){
+  .spec{ grid-template-columns:1fr; }
+}
+@media (prefers-reduced-motion:reduce){
+  .seal{ animation:none; }
+  *{ scroll-behavior:auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================ HERO ============================================================ -->
+<header class="hero" data-screen-label="hero">
+  <div class="wrap">
+    <div class="hero-card">
+      <!-- Hero image placeholder: replace the .hero-card background with the actual photo (background-size:cover) -->
+      <span class="hero-placeholder-note">Hero image placeholder</span>
+
+      <a class="seal" href="#looking-for" aria-label="あと1名募集中">
+        <span class="s-top">ただいま</span>
+        <span class="s-big">あと<span class="u">1</span>名</span>
+        <span class="s-sub">募集中</span>
+        <span class="s-heart">♡</span>
+      </a>
+
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Northern Alps · Tateyama</span>
+        <h1>北アルプスへ、<br>一緒に行きませんか。</h1>
+        <div class="hero-sub">
+          <span class="date">2026.7.11 Sat</span>
+          <span class="dot"></span>
+          <span>→ 7.12 Sun</span>
+          <span class="dot"></span>
+          <span>立山 室堂</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================================================ SPEC ============================================================ -->
+<section class="ac-mint reveal" data-screen-label="spec">
+  <div class="wrap">
+    <div class="eyebrow">Overview</div>
+    <h2 class="sec-title">旅の<span class="hl">ひと目ガイド</span></h2>
+    <div class="spec">
+
+      <div class="spec-item span2 ac-sky">
+        <div class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+        </div>
+        <div class="spec-lab">日程 / Date</div>
+        <div class="spec-val">2026年7月11日（土）〜 12日（日）・1泊2日</div>
+      </div>
+
+      <div class="spec-item ac-lav">
+        <div class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        </div>
+        <div class="spec-lab">行き先 / Place</div>
+        <div class="spec-val">富山県 立山<br>室堂エリア</div>
+      </div>
+
+      <div class="spec-item ac-peach">
+        <div class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11.5 12 5l8 6.5"/><path d="M6 10.5V20h12v-9.5"/><path d="M10 20v-5h4v5"/></svg>
+        </div>
+        <div class="spec-lab">宿泊 / Stay</div>
+        <div class="spec-val">立山室堂山荘<br><span style="font-size:.85em;color:var(--ink-soft);">1泊2食付</span></div>
+      </div>
+
+      <div class="spec-item highlight span2 ac-peach">
+        <div class="spec-ico" aria-hidden="true" style="background:rgba(255,255,255,.7);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#d97a72" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20c0-3.3 2.5-5.5 5.5-5.5s5.5 2.2 5.5 5.5"/><path d="M18 7v6M21 10h-6"/></svg>
+        </div>
+        <div class="spec-lab" style="color:#d97a72;">募集人数 / Members</div>
+        <div class="spec-val"><em>あと1名</em> を募集しています</div>
+      </div>
+
+      <div class="spec-item span2 ac-mint">
+        <div class="spec-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14a7 7 0 0 1-9-9 7 7 0 1 0 9 9Z"/></svg>
+        </div>
+        <div class="spec-lab">集合 / Meet</div>
+        <div class="spec-val">前日の深夜、都内の駅に集合<br><span style="font-size:.85em;color:var(--ink-soft);">車で相乗りして向かいます</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ABOUT ============================================================ -->
+<section class="ac-sky reveal" data-screen-label="about">
+  <div class="wrap">
+    <div class="eyebrow">About Tateyama</div>
+    <h2 class="sec-title">立山って<span class="hl">どんなところ？</span></h2>
+    <div class="prose">
+      <p>標高2,450mの<strong>室堂（むろどう）</strong>は、北アルプスのなかでも、立山黒部アルペンルートを使ってバスやケーブルカーで直接たどり着ける、ちょっと特別な場所です。</p>
+      <p>夏でも残雪がきらめき、足もとには色とりどりの高山植物が咲いて、ふっくらとした雷鳥が歩いていることも。空気は澄んで、光がやわらかく、歩いているだけで心がほどけていきます。</p>
+      <p>初心者の方でも安心して楽しめるやさしさがありながら、見渡すスケールは正真正銘の北アルプス。日常からふわっと離れた、特別な二日間になるはずです。</p>
+      <p class="soft">もし天候が崩れたら、無理に山歩きはしません。室堂周辺（みくりが池、地獄谷、温泉など）で、のんびりと景色とおしゃべりを楽しむ予定です。</p>
+    </div>
+
+    <div class="media">
+      <!-- YouTube embed here -->
+      <div class="media-frame">
+        <div class="play" aria-hidden="true"></div>
+        <span class="media-note">YouTube embed placeholder</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ MEMBERS ============================================================ -->
+<section class="reveal" data-screen-label="members">
+  <div class="wrap">
+    <div class="ac-peach"><div class="eyebrow">Members</div></div>
+    <h2 class="sec-title ac-lav">一緒に歩く<span class="hl">メンバー</span></h2>
+    <div class="members">
+
+      <div class="member ac-peach">
+        <div class="member-pic">
+          <img src="https://kfgopro.com/wordpress/wp-content/uploads/2026/05/sako.jpg" alt="櫻子さん" loading="lazy">
+        </div>
+        <div class="member-name">櫻子<span class="kana">さこ</span></div>
+        <p class="member-bio">フォトグラファー。<br>山の光と空気を愛している人。</p>
+        <a class="member-ig" href="https://www.instagram.com/sako_photo" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>@sako_photo</span>
+        </a>
+      </div>
+
+      <div class="member ac-lav">
+        <div class="member-pic">
+          <img src="https://kfgopro.com/wordpress/wp-content/uploads/2026/05/rira.jpg" alt="Riraさん" loading="lazy">
+        </div>
+        <div class="member-name">Rira<span class="kana">りら</span></div>
+        <p class="member-bio">山の景色に魅せられた、<br>写真好きの女の子。</p>
+        <a class="member-ig" href="https://www.instagram.com/rira26_o0" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>@rira26_o0</span>
+        </a>
+      </div>
+
+      <div class="member ac-mint">
+        <div class="member-pic">
+          <img src="https://kfgopro.com/wordpress/wp-content/uploads/2026/05/kfgopro.jpg" alt="ぺん" loading="lazy">
+        </div>
+        <div class="member-role">山案内担当</div>
+        <div class="member-name">ぺん</div>
+        <p class="member-bio">山歩き担当。コース・装備・安全管理を引き受けます。プロのガイドではなく、山好きの仲間です。</p>
+        <a class="member-ig" href="https://www.instagram.com/kfgopro" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+          <span>@kfgopro</span>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ LOOKING FOR ============================================================ -->
+<section class="ac-lav reveal" id="looking-for" data-screen-label="looking-for">
+  <div class="wrap">
+    <div class="eyebrow">Looking for…</div>
+    <h2 class="sec-title">こんな方を<span class="hl">探しています</span></h2>
+    <p class="lead">堅苦しく考えなくて大丈夫。<br>「楽しそう」と思ってくれたら、それがいちばんです。</p>
+    <div class="lookfor">
+      <ul>
+        <li>
+          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17l9-10"/></svg></span>
+          <span>写真が好きな方、または山の景色に興味がある方</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17l9-10"/></svg></span>
+          <span>山歩きの経験は問いません（はじめての方も大歓迎です）</span>
+        </li>
+        <li>
+          <span class="tick" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5 10 17l9-10"/></svg></span>
+          <span>さこさん・Rira のフォロワーさん、またはご紹介の方</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ ITINERARY ============================================================ -->
+<section class="reveal" data-screen-label="itinerary">
+  <div class="wrap">
+    <div class="ac-sky"><div class="eyebrow">Itinerary</div></div>
+    <h2 class="sec-title ac-sky">旅の<span class="hl">行程（目安）</span></h2>
+
+    <div class="day ac-sky">
+      <div class="day-head">
+        <span class="day-badge"><span class="d">1</span><span class="l">DAY</span></span>
+        <span class="day-cap">移動 & 室堂さんぽ</span>
+      </div>
+      <div class="tl">
+        <div class="tl-step">
+          <span class="tl-time">前日<br>深夜</span>
+          <div class="tl-act">都内の駅で待ち合わせ・出発</div>
+          <div class="tl-note">車での相乗り移動です</div>
+        </div>
+        <div class="tl-step">
+          <span class="tl-time">朝</span>
+          <div class="tl-act">扇沢に到着、アルペンルートへ乗車</div>
+        </div>
+        <div class="tl-step notime">
+          <div class="tl-act">黒部ダムを少しだけ観光</div>
+        </div>
+        <div class="tl-step">
+          <span class="tl-time">昼ごろ</span>
+          <div class="tl-act">室堂ターミナル到着</div>
+          <div class="tl-note">山小屋（立山室堂山荘）に荷物を預けます</div>
+        </div>
+        <div class="tl-step">
+          <span class="tl-time">午後</span>
+          <div class="tl-act">室堂散策</div>
+          <div class="tl-note">みくりが池や周辺スポットめぐり、お花鑑賞、写真タイム</div>
+        </div>
+        <div class="tl-step">
+          <span class="tl-time">夕方</span>
+          <div class="tl-act">温泉（みくりが池温泉など）</div>
+        </div>
+        <div class="tl-step is-end">
+          <span class="tl-time">夜</span>
+          <div class="tl-act">早めに就寝</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day ac-lav">
+      <div class="day-head">
+        <span class="day-badge"><span class="d">2</span><span class="l">DAY</span></span>
+        <span class="day-cap">山歩き（メインイベント！）</span>
+      </div>
+      <div class="tl">
+        <div class="tl-step">
+          <span class="tl-time">早朝</span>
+          <div class="tl-act">起床</div>
+          <div class="tl-note">朝ごはんはお弁当にして、山歩き中に食べるかも</div>
+        </div>
+        <div class="tl-step is-main">
+          <span class="tl-time">午前<br>〜昼</span>
+          <div class="tl-act">山歩き（メインイベント！）</div>
+          <div class="tl-mainroute">立山室堂山荘 → 一の越山荘 → 雄山 → 大汝山 → 富士の折立 → 雷鳥沢 → 立山室堂山荘</div>
+        </div>
+        <div class="tl-step">
+          <span class="tl-time">午後</span>
+          <div class="tl-act">室堂ターミナルからアルペンルートで下山</div>
+        </div>
+        <div class="tl-step is-end">
+          <span class="tl-time">夕方</span>
+          <div class="tl-act">扇沢で車に乗り換え、帰路へ</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ COURSE MAP ============================================================ -->
+<section class="ac-mint reveal" data-screen-label="course-map">
+  <div class="wrap">
+    <div class="eyebrow">Course Map</div>
+    <h2 class="sec-title">2日目の<span class="hl">山歩きコース</span></h2>
+    <div class="map-card">
+      <svg class="map-illust" viewBox="0 0 800 440" role="img" aria-label="立山 縦走コースのイラストマップ">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#eef7fc"/><stop offset="1" stop-color="#f7f1fb"/>
+          </linearGradient>
+          <linearGradient id="m-back" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#cfe7f5"/><stop offset="1" stop-color="#e1f2fa"/>
+          </linearGradient>
+          <linearGradient id="m-mid" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#bfe3d3"/><stop offset="1" stop-color="#dcf1e8"/>
+          </linearGradient>
+          <linearGradient id="m-front" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#a9dcc6"/><stop offset="1" stop-color="#c7ead9"/>
+          </linearGradient>
+        </defs>
+
+        <rect width="800" height="440" rx="16" fill="url(#sky)"/>
+        <!-- soft sun -->
+        <circle cx="120" cy="92" r="34" fill="#fde6e3" opacity=".85"/>
+        <circle cx="120" cy="92" r="34" fill="none" stroke="#f4a9a2" stroke-width="2" stroke-dasharray="3 6" opacity=".6"/>
+        <!-- clouds -->
+        <g fill="#ffffff" opacity=".75">
+          <ellipse cx="640" cy="78" rx="46" ry="16"/><ellipse cx="678" cy="86" rx="34" ry="13"/><ellipse cx="600" cy="88" rx="30" ry="11"/>
+        </g>
+
+        <!-- back ridge -->
+        <path d="M0 300 L90 215 L170 270 L250 180 L340 250 L430 150 L540 235 L640 175 L740 245 L800 210 L800 440 L0 440 Z" fill="url(#m-back)"/>
+        <!-- mid ridge with the three summits -->
+        <path d="M0 360 L120 290 L230 250 L300 210 L370 168 L430 150 L495 175 L560 235 L660 270 L760 300 L800 285 L800 440 L0 440 Z" fill="url(#m-mid)"/>
+        <!-- residual snow on peaks -->
+        <path d="M370 168 L430 150 L495 175 L470 192 L430 178 L398 190 Z" fill="#ffffff" opacity=".8"/>
+        <path d="M283 222 L300 210 L322 224 L305 232 Z" fill="#ffffff" opacity=".7"/>
+        <!-- front hill -->
+        <path d="M0 440 L0 392 L140 350 L300 372 L470 340 L640 372 L800 348 L800 440 Z" fill="url(#m-front)"/>
+
+        <!-- dashed trail -->
+        <path id="trail" d="M70 392 C 150 360, 200 300, 255 252 S 360 175, 430 153 C 480 165, 520 210, 560 240 S 660 305, 720 370"
+              fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity=".55"/>
+        <path d="M70 392 C 150 360, 200 300, 255 252 S 360 175, 430 153 C 480 165, 520 210, 560 240 S 660 305, 720 370"
+              fill="none" stroke="#ef9a93" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 11"/>
+
+        <!-- markers -->
+        <g font-family="'Klee One','Zen Maru Gothic',serif" font-weight="700">
+          <!-- start -->
+          <circle cx="70" cy="392" r="11" fill="#9fd9c1" stroke="#fff" stroke-width="3"/>
+          <text x="70" y="424" text-anchor="middle" font-size="19" fill="#5a5450">室堂山荘</text>
+          <text x="70" y="372" text-anchor="middle" font-size="15" fill="#8c847e">START</text>
+          <!-- 一の越 -->
+          <circle cx="255" cy="252" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
+          <text x="255" y="232" text-anchor="middle" font-size="18" fill="#5a5450">一の越山荘</text>
+          <!-- 雄山 -->
+          <circle cx="370" cy="170" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
+          <text x="356" y="150" text-anchor="middle" font-size="18" fill="#5a5450">雄山</text>
+          <text x="356" y="132" text-anchor="middle" font-size="14" fill="#8c847e">3,003m</text>
+          <!-- 大汝山 (highest) -->
+          <circle cx="430" cy="153" r="12" fill="#f4a9a2" stroke="#fff" stroke-width="3"/>
+          <text x="452" y="138" text-anchor="middle" font-size="19" fill="#d97a72">大汝山</text>
+          <text x="452" y="120" text-anchor="middle" font-size="14" fill="#d97a72">★3,015m 最高点</text>
+          <!-- 富士の折立 -->
+          <circle cx="520" cy="207" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
+          <text x="545" y="192" text-anchor="middle" font-size="18" fill="#5a5450">富士の折立</text>
+          <text x="545" y="174" text-anchor="middle" font-size="14" fill="#8c847e">2,999m</text>
+          <!-- 雷鳥沢 -->
+          <circle cx="630" cy="290" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
+          <text x="648" y="312" text-anchor="middle" font-size="18" fill="#5a5450">雷鳥沢</text>
+          <!-- goal -->
+          <circle cx="720" cy="370" r="11" fill="#9fd9c1" stroke="#fff" stroke-width="3"/>
+          <text x="720" y="402" text-anchor="middle" font-size="19" fill="#5a5450">室堂山荘</text>
+          <text x="720" y="350" text-anchor="middle" font-size="15" fill="#8c847e">GOAL</text>
+        </g>
+      </svg>
+
+      <div class="route-strip">
+        <div class="route-node"><span class="n">1</span><span class="nm">立山室堂山荘<small>START</small></span></div>
+        <span class="route-arrow">→</span>
+        <div class="route-node peak"><span class="n">2</span><span class="nm">一の越山荘</span></div>
+        <span class="route-arrow">→</span>
+        <div class="route-node peak"><span class="n">3</span><span class="nm">雄山<small>3,003m</small></span></div>
+        <span class="route-arrow">→</span>
+        <div class="route-node top"><span class="n">4</span><span class="nm">大汝山<small>★3,015m 最高点</small></span></div>
+        <span class="route-arrow">→</span>
+        <div class="route-node peak"><span class="n">5</span><span class="nm">富士の折立<small>2,999m</small></span></div>
+        <span class="route-arrow">→</span>
+        <div class="route-node peak"><span class="n">6</span><span class="nm">雷鳥沢</span></div>
+        <span class="route-arrow">→</span>
+        <div class="route-node"><span class="n">7</span><span class="nm">立山室堂山荘<small>GOAL</small></span></div>
+      </div>
+      <p class="map-cap">※ イメージ図です。当日の天候・体調に合わせて、無理のない範囲で歩きます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ COST ============================================================ -->
+<section class="ac-lav reveal" data-screen-label="cost">
+  <div class="wrap">
+    <div class="eyebrow">Cost</div>
+    <h2 class="sec-title">費用に<span class="hl">ついて</span></h2>
+    <div class="cost">
+      <div class="cost-row">
+        <div class="ci">山小屋代<small>1泊2食付</small></div>
+        <div class="cv">13,200<span>円</span></div>
+      </div>
+      <div class="cost-row">
+        <div class="ci">アルペンルート代<small>往復・早割</small></div>
+        <div class="cv">11,300<span>円</span></div>
+      </div>
+      <div class="cost-row">
+        <div class="ci">扇沢までの交通費<small>割勘</small></div>
+        <div class="cv">約4,000<span>円</span></div>
+      </div>
+      <div class="cost-row own">
+        <div class="ci">その他雑費<small>飲み物・行動食など</small></div>
+        <div class="cv">各自</div>
+      </div>
+    </div>
+    <p class="cost-note">※ 金額は目安です。詳しくは個別にご案内しますね。</p>
+  </div>
+</section>
+
+<!-- ============================================================ GEAR ============================================================ -->
+<section class="ac-peach reveal" data-screen-label="gear">
+  <div class="wrap">
+    <div class="eyebrow">Gear</div>
+    <h2 class="sec-title">もちもの<span class="hl">（装備）</span></h2>
+    <p class="lead">天候が崩れたら無理に山歩きはしない方針ですが、山の天気は変わりやすいもの。<br>この3点だけは、しっかり準備をお願いします。</p>
+    <span class="three-treasures">— 山歩きの三種の神器 —</span>
+    <div class="gear-cards">
+
+      <div class="gear">
+        <div class="gear-no">No.1</div>
+        <div class="gear-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h4l1.5 5 6 1.5c2 .5 4 1.6 4 3.5v2H4Z"/><path d="M4 18v-3M8 6V4"/><path d="M4 16h16"/></svg>
+        </div>
+        <h3>登山靴</h3>
+        <p>ハイキングシューズ以上を。スニーカーは不可です。滑りにくいグリップソールで、足首をしっかりホールドできるものが安心です。</p>
+      </div>
+
+      <div class="gear">
+        <div class="gear-no">No.2</div>
+        <div class="gear-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 8 9 5h6l2 3v11a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1Z"/><path d="M12 5v14M7 8l-2 1v4M17 8l2 1v4"/></svg>
+        </div>
+        <h3>レインウェア</h3>
+        <p>上下セパレートの本格的なものを。山の天気は急変します。コンビニのカッパではなく、折りたためてザックに収まるものがベストです。</p>
+      </div>
+
+      <div class="gear">
+        <div class="gear-no">No.3</div>
+        <div class="gear-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="6" width="12" height="15" rx="4"/><path d="M9 6V4.5A2.5 2.5 0 0 1 11.5 2h1A2.5 2.5 0 0 1 15 4.5V6"/><path d="M9 11h6"/></svg>
+        </div>
+        <h3>ザック</h3>
+        <p>山小屋が室堂ターミナルから近いので、荷物は最小限でOK。30Lくらいが理想ですが、容量はそこまで気にしなくて大丈夫。古いものでも問題ありません。お持ちでない方はお貸しできます（要相談）。</p>
+      </div>
+
+    </div>
+    <p class="gear-foot">小物類（手袋・帽子・サングラスなど）は、別途ご案内しますね。</p>
+  </div>
+</section>
+
+<!-- ============================================================ RESTROOM ============================================================ -->
+<section class="ac-sky reveal" data-screen-label="restroom">
+  <div class="wrap">
+    <div class="eyebrow">Restroom</div>
+    <h2 class="sec-title">トイレに<span class="hl">ついて</span></h2>
+    <p class="lead">はじめての山だと気になるところ。<br>このコースは、比較的安心して歩けます。</p>
+    <div class="rest">
+      <ul>
+        <li><span class="dt"></span><span><strong>室堂ターミナル・山小屋</strong>にトイレあり。とても快適です。</span></li>
+        <li><span class="dt"></span><span>山歩き中のルート上（<strong>一の越山荘</strong>など）にもトイレがあります。</span></li>
+        <li><span class="dt"></span><span>山のトイレは<strong>協力金（100〜200円程度）</strong>をお願いしていることが多いので、小銭の準備を。</span></li>
+        <li><span class="dt"></span><span><strong>雷鳥沢エリア</strong>にも、キャンプ場のトイレがあります。</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ CLOSING + FOOTER ============================================================ -->
+<section class="reveal" data-screen-label="closing">
+  <div class="wrap">
+    <div class="closing">
+      <div class="heart">♡</div>
+      <p>北アルプスの夏のひかりを、<br>一緒に歩いて、写真におさめませんか。<br>あなたの参加を、心から楽しみにしています。</p>
+      <p class="sign">— 気になったら、お気軽に DM で教えてくださいね —</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="assets/logo-kfgopro.png" alt="kfgopro">
+  <p class="fnote">立山旅 2026.7.11–12 ／ on-location photo journey</p>
+</footer>
+
+</body>
+</html>

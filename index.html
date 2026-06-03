@@ -390,6 +390,13 @@ section{ padding:clamp(36px,8vw,60px) 0; }
 .route-node.top .nm{ font-weight:var(--w-bold); }
 .route-arrow{ align-self:center; color:var(--mint); font-size:14px; }
 .map-cap{ text-align:center; font-size:var(--t-small); color:var(--ink-soft); margin-top:clamp(14px,3vw,18px); font-family:var(--font-hand); }
+.ct-wrap{ margin-top:clamp(28px,5vw,40px); max-width:480px; margin-left:auto; margin-right:auto; }
+.ct-heading{
+  font-family:var(--font-hand); font-size:var(--t-lead); font-weight:var(--w-bold);
+  color:var(--ink-strong); text-align:center; margin-bottom:clamp(18px,3.5vw,26px);
+  letter-spacing:.08em;
+}
+.ct-wrap small{ font-size:var(--t-small); color:var(--ink-soft); font-weight:var(--w-reg); margin-left:6px; }
 
 /* ============================================================
    COST
@@ -670,19 +677,19 @@ footer .fnote{ font-size:var(--t-caption); color:var(--ink-soft); letter-spacing
       </div>
       <div class="tl">
         <div class="tl-step">
-          <span class="tl-time">前日<br>深夜</span>
+          <span class="tl-time">0:30</span>
           <div class="tl-act">都内の駅で待ち合わせ・出発</div>
-          <div class="tl-note">車での相乗り移動です</div>
+          <div class="tl-note">車での相乗り移動、途中で朝ごはん</div>
         </div>
         <div class="tl-step">
-          <span class="tl-time">朝</span>
-          <div class="tl-act">扇沢に到着、アルペンルートへ乗車</div>
+          <span class="tl-time">7:00</span>
+          <div class="tl-act">扇沢に到着、アルペンルート（7:30始発）へ乗車</div>
         </div>
         <div class="tl-step notime">
-          <div class="tl-act">黒部ダムを少しだけ観光</div>
+          <div class="tl-act">黒部ダム観光（寄り道）</div>
         </div>
         <div class="tl-step">
-          <span class="tl-time">昼ごろ</span>
+          <span class="tl-time">11:00</span>
           <div class="tl-act">室堂ターミナル到着</div>
           <div class="tl-note">山小屋（立山室堂山荘）に荷物を預けます</div>
         </div>
@@ -692,7 +699,7 @@ footer .fnote{ font-size:var(--t-caption); color:var(--ink-soft); letter-spacing
           <div class="tl-note">周辺スポットめぐり、お花鑑賞、写真タイム</div>
         </div>
         <div class="tl-step is-end">
-          <span class="tl-time">夜</span>
+          <span class="tl-time">21:00</span>
           <div class="tl-act">早めに就寝</div>
         </div>
       </div>
@@ -705,21 +712,21 @@ footer .fnote{ font-size:var(--t-caption); color:var(--ink-soft); letter-spacing
       </div>
       <div class="tl">
         <div class="tl-step">
-          <span class="tl-time">早朝</span>
+          <span class="tl-time">5:00</span>
           <div class="tl-act">起床</div>
           <div class="tl-note">朝ごはんはお弁当にして、山歩き中に食べるかも</div>
         </div>
         <div class="tl-step is-main">
-          <span class="tl-time">午前<br>〜昼</span>
+          <span class="tl-time">5:30</span>
           <div class="tl-act">山歩き（メインイベント！）</div>
           <div class="tl-mainroute">立山室堂山荘 → 一の越山荘 → 雄山 → 大汝山 → 富士の折立 → 雷鳥沢 → 立山室堂山荘</div>
         </div>
         <div class="tl-step">
-          <span class="tl-time">午後</span>
+          <span class="tl-time">12:00</span>
           <div class="tl-act">室堂ターミナルからアルペンルートで下山</div>
         </div>
         <div class="tl-step is-end">
-          <span class="tl-time">夕方</span>
+          <span class="tl-time">14:00</span>
           <div class="tl-act">扇沢で車に乗り換え、帰路へ</div>
         </div>
       </div>
@@ -734,7 +741,7 @@ footer .fnote{ font-size:var(--t-caption); color:var(--ink-soft); letter-spacing
     <h2 class="sec-title">2日目の<span class="hl">山歩きコース</span></h2>
     <div class="map-card">
       <img class="map-illust" src="https://kfgopro.com/wordpress/wp-content/uploads/2026/06/day2route.jpg" alt="立山 縦走コースマップ">
-
+      <!--
       <div class="route-strip">
         <div class="route-node"><span class="n">1</span><span class="nm">立山室堂山荘<small>START</small></span></div>
         <span class="route-arrow">→</span>
@@ -750,7 +757,43 @@ footer .fnote{ font-size:var(--t-caption); color:var(--ink-soft); letter-spacing
         <span class="route-arrow">→</span>
         <div class="route-node"><span class="n">7</span><span class="nm">立山室堂山荘<small>GOAL</small></span></div>
       </div>
-      <p class="map-cap">※ イメージ図です。当日の天候・体調に合わせて、無理のない範囲で歩きます。</p>
+      -->
+      <p class="map-cap">※ 当日の天候・体調に合わせて、無理のない範囲で歩きます。</p>
+    </div>
+
+    <div class="ct-wrap">
+      <h3 class="ct-heading">コースタイム（目安）</h3>
+      <div class="tl">
+        <div class="tl-step is-main">
+          <div class="tl-time">5:30</div>
+          <div class="tl-act">立山室堂山荘</div>
+          <div class="tl-note">早起きしてスタート</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-time">6:30</div>
+          <div class="tl-act">一の越山荘</div>
+          <div class="tl-note">ここが一番キツイ！</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-time">7:30</div>
+          <div class="tl-act">雄山<small>3,003m</small></div>
+          <div class="tl-note">朝ごはん（お弁当）を食べて気持ちのよい稜線歩きへ</div>
+        </div>
+        <div class="tl-step is-main">
+          <div class="tl-time">8:30</div>
+          <div class="tl-act">大汝山<small>★3,015m 最高点</small></div>
+          <div class="tl-note">正面に剱岳が見えるよ</div>
+        </div>
+        <div class="tl-step">
+          <div class="tl-time">10:30</div>
+          <div class="tl-act">雷鳥沢</div>
+          <div class="tl-note">のんびり下山</div>
+        </div>
+        <div class="tl-step is-end">
+          <div class="tl-time">11:30</div>
+          <div class="tl-act">立山室堂山荘</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>

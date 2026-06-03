@@ -733,77 +733,7 @@ footer .fnote{ font-size:var(--t-caption); color:var(--ink-soft); letter-spacing
     <div class="eyebrow">Course Map</div>
     <h2 class="sec-title">2日目の<span class="hl">山歩きコース</span></h2>
     <div class="map-card">
-      <svg class="map-illust" viewBox="0 0 800 440" role="img" aria-label="立山 縦走コースのイラストマップ">
-        <defs>
-          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#eef7fc"/><stop offset="1" stop-color="#f7f1fb"/>
-          </linearGradient>
-          <linearGradient id="m-back" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#cfe7f5"/><stop offset="1" stop-color="#e1f2fa"/>
-          </linearGradient>
-          <linearGradient id="m-mid" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#bfe3d3"/><stop offset="1" stop-color="#dcf1e8"/>
-          </linearGradient>
-          <linearGradient id="m-front" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#a9dcc6"/><stop offset="1" stop-color="#c7ead9"/>
-          </linearGradient>
-        </defs>
-
-        <rect width="800" height="440" rx="16" fill="url(#sky)"/>
-        <!-- soft sun -->
-        <circle cx="120" cy="92" r="34" fill="#fde6e3" opacity=".85"/>
-        <circle cx="120" cy="92" r="34" fill="none" stroke="#f4a9a2" stroke-width="2" stroke-dasharray="3 6" opacity=".6"/>
-        <!-- clouds -->
-        <g fill="#ffffff" opacity=".75">
-          <ellipse cx="640" cy="78" rx="46" ry="16"/><ellipse cx="678" cy="86" rx="34" ry="13"/><ellipse cx="600" cy="88" rx="30" ry="11"/>
-        </g>
-
-        <!-- back ridge -->
-        <path d="M0 300 L90 215 L170 270 L250 180 L340 250 L430 150 L540 235 L640 175 L740 245 L800 210 L800 440 L0 440 Z" fill="url(#m-back)"/>
-        <!-- mid ridge with the three summits -->
-        <path d="M0 360 L120 290 L230 250 L300 210 L370 168 L430 150 L495 175 L560 235 L660 270 L760 300 L800 285 L800 440 L0 440 Z" fill="url(#m-mid)"/>
-        <!-- residual snow on peaks -->
-        <path d="M370 168 L430 150 L495 175 L470 192 L430 178 L398 190 Z" fill="#ffffff" opacity=".8"/>
-        <path d="M283 222 L300 210 L322 224 L305 232 Z" fill="#ffffff" opacity=".7"/>
-        <!-- front hill -->
-        <path d="M0 440 L0 392 L140 350 L300 372 L470 340 L640 372 L800 348 L800 440 Z" fill="url(#m-front)"/>
-
-        <!-- dashed trail -->
-        <path id="trail" d="M70 392 C 150 360, 200 300, 255 252 S 360 175, 430 153 C 480 165, 520 210, 560 240 S 660 305, 720 370"
-              fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity=".55"/>
-        <path d="M70 392 C 150 360, 200 300, 255 252 S 360 175, 430 153 C 480 165, 520 210, 560 240 S 660 305, 720 370"
-              fill="none" stroke="#ef9a93" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 11"/>
-
-        <!-- markers -->
-        <g font-family="'Klee One','Zen Maru Gothic',serif" font-weight="700">
-          <!-- start -->
-          <circle cx="70" cy="392" r="11" fill="#9fd9c1" stroke="#fff" stroke-width="3"/>
-          <text x="70" y="424" text-anchor="middle" font-size="19" fill="#5a5450">室堂山荘</text>
-          <text x="70" y="372" text-anchor="middle" font-size="15" fill="#8c847e">START</text>
-          <!-- 一の越 -->
-          <circle cx="255" cy="252" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
-          <text x="255" y="232" text-anchor="middle" font-size="18" fill="#5a5450">一の越山荘</text>
-          <!-- 雄山 -->
-          <circle cx="370" cy="170" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
-          <text x="356" y="150" text-anchor="middle" font-size="18" fill="#5a5450">雄山</text>
-          <text x="356" y="132" text-anchor="middle" font-size="14" fill="#8c847e">3,003m</text>
-          <!-- 大汝山 (highest) -->
-          <circle cx="430" cy="153" r="12" fill="#f4a9a2" stroke="#fff" stroke-width="3"/>
-          <text x="452" y="138" text-anchor="middle" font-size="19" fill="#d97a72">大汝山</text>
-          <text x="452" y="120" text-anchor="middle" font-size="14" fill="#d97a72">★3,015m 最高点</text>
-          <!-- 富士の折立 -->
-          <circle cx="520" cy="207" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
-          <text x="545" y="192" text-anchor="middle" font-size="18" fill="#5a5450">富士の折立</text>
-          <text x="545" y="174" text-anchor="middle" font-size="14" fill="#8c847e">2,999m</text>
-          <!-- 雷鳥沢 -->
-          <circle cx="630" cy="290" r="9" fill="#fff" stroke="#9fd9c1" stroke-width="3"/>
-          <text x="648" y="312" text-anchor="middle" font-size="18" fill="#5a5450">雷鳥沢</text>
-          <!-- goal -->
-          <circle cx="720" cy="370" r="11" fill="#9fd9c1" stroke="#fff" stroke-width="3"/>
-          <text x="720" y="402" text-anchor="middle" font-size="19" fill="#5a5450">室堂山荘</text>
-          <text x="720" y="350" text-anchor="middle" font-size="15" fill="#8c847e">GOAL</text>
-        </g>
-      </svg>
+      <img class="map-illust" src="https://kfgopro.com/wordpress/wp-content/uploads/2026/06/day2route.jpg" alt="立山 縦走コースマップ">
 
       <div class="route-strip">
         <div class="route-node"><span class="n">1</span><span class="nm">立山室堂山荘<small>START</small></span></div>

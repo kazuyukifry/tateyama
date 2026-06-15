@@ -1823,6 +1823,14 @@
 @media (prefers-reduced-motion: reduce){
   .kf-plan, .kf-toast, .kf-choose button, .kf-maplink { transition:none; }
 }
+.kf-glance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(10px, 2.5vw, 16px);
+}
+@media (max-width: 599px) {
+  .kf-glance-grid { grid-template-columns: 1fr; }
+}
 </style>
 <script>
 /* @ds-bundle: {"format":3,"namespace":"KfgoproDesignSystem_771c6d","components":[],"sourceHashes":{"ui_kits/client-proposal/ClosingNote.jsx":"3d422c21ac7d","ui_kits/client-proposal/MeetingPoint.jsx":"467b555b1dc5","ui_kits/client-proposal/PlanCard.jsx":"c6835cdb105b","ui_kits/client-proposal/ProposalHero.jsx":"a29e5fc36d9a","ui_kits/client-proposal/image-slot.js":"9309434cb09c"},"inlinedExternals":[],"unexposedExports":[]} */
@@ -2764,7 +2772,7 @@ try { (() => {
       </div>
       <h2 style="text-align:center;font-family:var(--font-display);font-weight:900;font-size:var(--t-h2);color:var(--ink-strong);line-height:1.4;margin:0 0 clamp(24px,5vw,38px);">ひと目でわかる</h2>
 
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:clamp(10px,2.5vw,16px);">
+      <div class="kf-glance-grid">
         <div style="background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r-panel);padding:clamp(18px,3.6vw,24px) clamp(14px,3vw,18px);text-align:center;box-shadow:var(--shadow-panel);">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--sky-deep)" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"></rect><path d="M3.5 9h17M8 3v4M16 3v4"></path></svg>
           <div style="font-size:var(--t-eyebrow);letter-spacing:.2em;color:var(--sky-deep);font-weight:700;text-transform:uppercase;margin:10px 0 3px;">Date</div>

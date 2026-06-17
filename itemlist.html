@@ -192,6 +192,31 @@ body{
 .closing .logo{width:min(52%,210px);height:auto;margin:clamp(22px,5vw,34px) auto 0;display:block;opacity:.92;}
 .closing .tag{font-family:var(--font-hand);font-size:var(--t-note);color:var(--ink-soft);letter-spacing:.04em;margin-top:14px;}
 
+/* ---- 3-layer layering note ---- */
+.layering-note{
+  background:var(--sky-soft); border-radius:var(--r-panel); box-shadow:var(--shadow-panel);
+  border:1.5px solid var(--sky);
+  padding:clamp(16px,3.5vw,24px) clamp(16px,4vw,26px);
+  margin-bottom:clamp(16px,3.5vw,22px);
+}
+.ln-title{
+  font-family:var(--font-display); font-size:clamp(12px,2.6vw,13.5px); font-weight:700;
+  letter-spacing:.1em; color:var(--sky-deep); text-align:center;
+  margin-bottom:clamp(12px,2.5vw,16px);
+}
+.ln-layers{ display:flex; flex-direction:column; gap:10px; }
+.ln-layer{ display:flex; align-items:flex-start; gap:12px; }
+.ln-badge{
+  flex:0 0 auto; width:36px; height:36px; border-radius:50%;
+  background:var(--sky-deep); color:#fff;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-display); font-size:var(--t-caption); font-weight:900;
+  line-height:1;
+}
+.ln-name{ font-weight:700; font-size:var(--t-small); color:var(--ink-strong); }
+.ln-sub{ font-size:var(--t-caption); color:var(--ink-soft); margin-left:4px; }
+.ln-desc{ font-size:var(--t-note); color:var(--ink); line-height:1.75; margin-top:2px; }
+
 /* ---- fade-in (calm) ---- */
 @media (prefers-reduced-motion:no-preference){
   .fade{opacity:0;transform:translateY(14px);animation:rise .7s var(--ease) forwards;}
@@ -251,6 +276,34 @@ body{
     </div>
   </section>
 
+  <!-- ===== 3層レイヤリング解説 ===== -->
+  <div class="layering-note fade">
+    <div class="ln-title">— 山の服装の基本：3層レイヤリング —</div>
+    <div class="ln-layers">
+      <div class="ln-layer">
+        <div class="ln-badge">1st</div>
+        <div class="ln-content">
+          <span class="ln-name">ベースレイヤー</span><span class="ln-sub">（行動着・肌着）</span>
+          <div class="ln-desc">速乾・吸汗の化繊やウール素材のシャツ。汗を素早く外へ逃がします。<b>綿素材はNG（汗冷えします）。</b></div>
+        </div>
+      </div>
+      <div class="ln-layer">
+        <div class="ln-badge">2nd</div>
+        <div class="ln-content">
+          <span class="ln-name">ミドルレイヤー</span><span class="ln-sub">（保温着）</span>
+          <div class="ln-desc">フリースや薄手ダウン。体温を保持する中間層。稜線・山小屋では必須。</div>
+        </div>
+      </div>
+      <div class="ln-layer">
+        <div class="ln-badge">3rd</div>
+        <div class="ln-content">
+          <span class="ln-name">アウターレイヤー</span><span class="ln-sub">（防風・防雨着）</span>
+          <div class="ln-desc">透湿防水のレインウェア。雨・風を防ぎ、防寒にも兼用。山では必ず携行します。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- ===== ウェア・シューズ ===== -->
   <section class="cat c-sky fade">
     <div class="cat-head">
@@ -284,16 +337,16 @@ body{
         </div>
       </div>
       <div class="row">
-        <span class="ico"><!-- icon: clothes-stack -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="13.5" width="16" height="5.5" rx="1.5"/><path d="M4 13.5 6 9h12l2 4.5"/><path d="M9 9.5l1.5 1.5 3-3"/></svg></span>
+        <span class="ico"><!-- icon: t-shirt -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4h6l3 4.5-1.5 2H15v10H9V10.5H7.5L6 8.5Z"/><path d="M9 4c.5 2 1.5 3 3 3s2.5-1 3-3"/></svg></span>
         <div class="main">
           <div class="head"><span class="name">シャツ・肌着</span><span class="bdg req">必須</span></div>
           <div class="note">速乾・吸汗素材のもの。ユニクロのドライEXなどでも十分。綿素材は汗冷えするので、<span class="em">化繊かウール素材。</span>汗をかくので換えをもう1〜2枚。「ベースレイヤー（行動着）」にあたります。</div>
         </div>
       </div>
       <div class="row">
-        <span class="ico"><!-- icon: clothes-stack -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="13.5" width="16" height="5.5" rx="1.5"/><path d="M4 13.5 6 9h12l2 4.5"/><path d="M9 9.5l1.5 1.5 3-3"/></svg></span>
+        <span class="ico"><!-- icon: pants -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 4h10l-1 8-1 8H13l-1-4-1 4H9L8 12Z"/><path d="M7 4c1 2 3 3 5 3s4-1 5-3"/><path d="M8 9h8"/></svg></span>
         <div class="main">
           <div class="head"><span class="name">トレッキングパンツ</span><span class="bdg req">必須</span></div>
           <div class="note">動きやすく、乾きやすい素材のもの。山スカート（またはショートパンツ）とサポートタイツでもOK。</div>
@@ -313,6 +366,14 @@ body{
         <div class="main">
           <div class="head"><span class="name">帽子</span><span class="bdg req">必須</span></div>
           <div class="note">山の日差しは強いのと、万一の時に頭を守るために。</div>
+        </div>
+      </div>
+      <div class="row">
+        <span class="ico"><!-- icon: softshell-jacket (half-zip + chest pocket) -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L5 6v13a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V6l-4-2"/><path d="M9 4c0 1.8 1.3 2.8 3 2.8S15 5.8 15 4"/><path d="M12 7v4.5"/><circle cx="12" cy="12.2" r=".9" fill="currentColor" stroke="none"/><rect x="6.5" y="13.5" width="3.5" height="2.5" rx=".7"/></svg></span>
+        <div class="main">
+          <div class="head"><span class="name">ソフトシェル</span><span class="bdg opt">任意</span></div>
+          <div class="note">基本の3層に加えて、あると快適になる上着。雨具は蒸れて動きにくいという人に。防水ではないので雨具の代用にはなりません。アウターとミドルの間くらいの役割。</div>
         </div>
       </div>
       <div class="row">
@@ -426,8 +487,8 @@ body{
         </div>
       </div>
       <div class="row">
-        <span class="ico"><!-- icon: emergency-sheet -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="6" width="14" height="12" rx="1.5"/><path d="M5 10h14M9 6v12M15 6v12"/><path d="M9 10l6 4M15 10l-6 4"/></svg></span>
+        <span class="ico"><!-- icon: foil-emergency-sheet (diagonal shine lines) -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="8" rx="1.5"/><path d="M8 8l-4 8M13 8l-5 8M18 8l-5 8M20 9l-4 7"/></svg></span>
         <div class="main">
           <div class="head"><span class="name">エマージェンシーシート</span><span class="bdg opt">任意</span></div>
           <div class="note">今回は必要ありません。万が一の体温保持用に。薄くて軽くザックに入れておける。</div>
@@ -531,8 +592,8 @@ body{
         </div>
       </div>
       <div class="row">
-        <span class="ico"><!-- icon: headlamp -->
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a8 8 0 0 1 16 0"/><rect x="9.5" y="11.5" width="5" height="4.5" rx="1.2"/><path d="M14.5 13.2 18 12M14.5 14.5l3.5 1"/><path d="M4 14v2.5M20 14v2.5"/></svg></span>
+        <span class="ico"><!-- icon: plastic-bag -->
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8h8l-1 9.5a1.5 1.5 0 0 1-1.5 1.3H10.5A1.5 1.5 0 0 1 9 17.5Z"/><path d="M9.5 8V6.5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1V8"/><path d="M10 5.5V4M14 5.5V4"/></svg></span>
         <div class="main">
           <div class="head"><span class="name">ごみ袋（ビニール袋）</span><span class="bdg opt">任意</span></div>
           <div class="note">あると何かと便利。ごみをまとめたり汗で濡れたものを入れたり。</div>
